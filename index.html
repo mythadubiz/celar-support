@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celar — Support</title>
+    <link rel="icon" type="image/png" href="celar_icon.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a14 0%, #141420 50%, #0a0a14 100%);
+            color: #e0e0f0;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+        .subtitle {
+            color: #8888aa;
+            font-size: 16px;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(180, 140, 60, 0.15);
+            border: 1px solid rgba(180, 140, 60, 0.3);
+            color: #d4a84a;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-top: 12px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 18px;
+            transition: border-color 0.3s;
+        }
+        .card:hover {
+            border-color: rgba(180, 140, 60, 0.2);
+        }
+        .card h2 {
+            font-size: 17px;
+            margin-bottom: 14px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card h2 .emoji {
+            font-size: 20px;
+        }
+        .card p {
+            color: #aaaacc;
+            line-height: 1.7;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+        strong {
+            color: #ddddee;
+        }
+        a {
+            color: #d4a84a;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .contact-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #b8860b, #d4a84a);
+            color: #0a0a14;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 10px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        .contact-link:hover {
+            opacity: 0.85;
+            text-decoration: none;
+        }
+        .privacy-link {
+            display: block;
+            text-align: center;
+            background: rgba(180, 140, 60, 0.1);
+            border: 1px solid rgba(180, 140, 60, 0.2);
+            color: #d4a84a;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .privacy-link:hover {
+            background: rgba(180, 140, 60, 0.18);
+            text-decoration: none;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .feature {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+        .feature .number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #d4a84a;
+        }
+        .feature .label {
+            font-size: 13px;
+            color: #8888aa;
+            margin-top: 4px;
+        }
+        .tier {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .tier-card {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 18px;
+        }
+        .tier-card.premium {
+            border-color: rgba(180, 140, 60, 0.3);
+            background: rgba(180, 140, 60, 0.05);
+        }
+        .tier-card h3 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        .tier-card.premium h3 {
+            color: #d4a84a;
+        }
+        .tier-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .tier-card ul li {
+            font-size: 13px;
+            color: #9999bb;
+            padding: 3px 0;
+        }
+        .tier-card ul li::before {
+            content: "✓ ";
+            color: #55aa55;
+        }
+        .tier-card.premium ul li::before {
+            color: #d4a84a;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            color: #555566;
+            font-size: 13px;
+        }
+        .footer p {
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="celar_icon.png" alt="Celar" class="app-icon">
+            <h1>Celar</h1>
+            <p class="subtitle">Your private photo &amp; video vault</p>
+            <span class="badge">AES-256 Encrypted</span>
+        </div>
+
+        <div class="card">
+            <h2><span class="emoji">📬</span> Contact Support</h2>
+            <p>Need help or have a question? We'd love to hear from you.</p>
+            <br>
+            <a href="mailto:mythadubiz@gmail.com" class="contact-link">Email Us</a>
+        </div>
+
+        <div class="card">
+            <h2><span class="emoji">❓</span> FAQ</h2>
+            <p><strong>How do I restore my purchase?</strong><br>
+            Go to Settings &rarr; tap "Unlock Premium" &rarr; tap "Restore Purchases" at the bottom of the page.</p>
+            <br>
+            <p><strong>How do I change the language?</strong><br>
+            Go to Settings &rarr; Language &rarr; choose from 19 available languages. The entire app switches instantly.</p>
+            <br>
+            <p><strong>I forgot my PIN. What do I do?</strong><br>
+            For security, there is no PIN recovery. If Face ID or Touch ID is enabled, you can use it to unlock. Otherwise, you'll need to reinstall the app, which will erase the vault contents.</p>
+            <br>
+            <p><strong>Are my photos and videos encrypted?</strong><br>
+            Yes. Every file is encrypted with AES-256 the moment it enters the vault. Files are unreadable without your credentials.</p>
+            <br>
+            <p><strong>Can I back up my vault?</strong><br>
+            Yes (Premium). Go to Settings &rarr; iCloud Backup. You can back up manually or enable auto daily backup. Backups are password-protected.</p>
+            <br>
+            <p><strong>What happens if I delete a photo?</strong><br>
+            Deleted items go to Recently Deleted and stay there for 30 days. You can recover or permanently erase them at any time.</p>
+            <br>
+            <p><strong>Is my data collected?</strong><br>
+            No. Celar does not collect any personal data. Everything stays on your device. <a href="privacy.html">Read our Privacy Policy</a>.</p>
+        </div>
+
+        <div class="card">
+            <h2><span class="emoji">📊</span> What's Inside</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="number">AES-256</div>
+                    <div class="label">Encryption</div>
+                </div>
+                <div class="feature">
+                    <div class="number">19</div>
+                    <div class="label">Languages</div>
+                </div>
+                <div class="feature">
+                    <div class="number">Face ID</div>
+                    <div class="label">& PIN Lock</div>
+                </div>
+                <div class="feature">
+                    <div class="number">iCloud</div>
+                    <div class="label">Backup</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><span class="emoji">💎</span> Free vs Premium</h2>
+            <div class="tier">
+                <div class="tier-card">
+                    <h3>Free</h3>
+                    <ul>
+                        <li>100 photos & videos</li>
+                        <li>5 albums</li>
+                        <li>AES-256 encryption</li>
+                        <li>PIN & Face ID</li>
+                        <li>30-day trash</li>
+                        <li>19 languages</li>
+                    </ul>
+                </div>
+                <div class="tier-card premium">
+                    <h3>Premium (one-time)</h3>
+                    <ul>
+                        <li>Unlimited photos</li>
+                        <li>Unlimited albums</li>
+                        <li>iCloud backup</li>
+                        <li>Decoy app icon</li>
+                        <li>Storage stats</li>
+                        <li>Yours forever</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <a href="privacy.html" class="privacy-link">🔒 Privacy Policy</a>
+
+        <div class="footer">
+            <p>&copy; 2026 Celar. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
